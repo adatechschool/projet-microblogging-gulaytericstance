@@ -1,13 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-use App\Http\Controllers\ProfileController;
-=======
->>>>>>> 13b0932 (modif1)
->>>>>>> a5c818d (modif1)
 use Illuminate\Support\Facades\Route;
 
 /*
