@@ -19,6 +19,10 @@ yarn-error.log
 /.vscode
 docker-compose.yml
 <<<<<<< HEAD
+<<<<<<< HEAD
 package-lock.json
 =======
 >>>>>>> a804d73 (solve conflicts)
+=======
+package-lock.json
+>>>>>>> 6e03920 (gitignore-config)
