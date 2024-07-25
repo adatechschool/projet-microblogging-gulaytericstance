@@ -122,7 +122,7 @@ Le projet s'ouvre normalement dans une nouvelle fenêtre VSCode, et démarre le 
 🟡 Installer les dépendances PHP via `composer`
 
 ```
-composer install
+composer install 
 ```
 
 Composer est le package manager par défaut de PHP (l'équivalent de `npm` en Node/JS). Les dépendances du projet (i.e. les librairies externes nécessaires) sont décrites dans le fichier `composer.json`. Une fois téléchargées elles sont installées dans le dossier `vendor`.
