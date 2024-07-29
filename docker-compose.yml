@@ -28,7 +28,6 @@ services:
             POSTGRES_PASSWORD: "${DB_PASSWORD:-secret}"
         volumes:
             - "microblogging-pgsql:/var/lib/postgresql/data"
-           # - "./vendor/laravel/sail/database/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql"
         networks:
             - microblogging
         healthcheck:
@@ -51,6 +50,17 @@ services:
             - microblogging-pgadmin:/var/lib/pgadmin
         ports:
             - "${PGADMIN_PORT:-5050}:80"
+        networks:
+            - microblogging
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            PMA_HOST: pgsql
+            MYSQL_ROOT_PASSWORD: "${DB_PASSWORD:-secret}"
+        ports:
+            - "8080:80"
+        depends_on:
+            - pgsql
         networks:
             - microblogging
     selenium:
