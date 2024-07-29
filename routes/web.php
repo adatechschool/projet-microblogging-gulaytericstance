@@ -1,11 +1,8 @@
 <?php
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
 use App\Http\Controllers\PostController;
 
-=======
->>>>>>> a804d73 (solve conflicts)
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,38 +16,28 @@ use App\Http\Controllers\PostController;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-=======
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
->>>>>>> a804d73 (solve conflicts)
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
 });
-<<<<<<< HEAD
-
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/post', [PostController::class, 'edit'])->name('post.edit');
     Route::patch('/post', [PostController::class, 'update'])->name('post.update');
     Route::delete('/post', [PostController::class, 'destroy'])->name('post.destroy');
+    return view('home');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/index', [PostController::class, 'index'])->name('post.index');
+    Route::get('/index', [PostController::class, 'show'])->name('post.show');
+});
 
-=======
->>>>>>> a804d73 (solve conflicts)
 require __DIR__.'/auth.php';
