@@ -35,4 +35,22 @@ class PostController extends Controller
         $post->delete();
         return Redirect::route('posts.index')->with('status', "post-deleted");
     }
+
+    //function pour lister
+    public function index()
+    {
+        return Post::all();
+    }
+
+    //function pour stocker la nouvelle donnée
+    public function store(Request $request)
+    {
+        return Post::create($request->all());
+    }
+
+    //function pour afficher une donnée spécifique
+    public function show(Post $post)
+    {
+        return $post;
+    }
 }
