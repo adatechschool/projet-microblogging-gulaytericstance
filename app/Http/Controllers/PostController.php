@@ -39,6 +39,7 @@ class PostController extends Controller
     //function pour lister
     public function index()
     {
+       /*  die("salut"); */
         return Post::all();
     }
 

@@ -35,9 +35,9 @@ Route::middleware('auth')->group(function () {
     return view('home');
 });
 
+Route::get('/index', [PostController::class, 'index'])->name('post.index');
+/* Route::get('/index', [PostController::class, 'show'])->name('post.show'); */
 Route::middleware('auth')->group(function () {
-    Route::get('/index', [PostController::class, 'index'])->name('post.index');
-    Route::get('/index', [PostController::class, 'show'])->name('post.show');
 });
 
 require __DIR__.'/auth.php';
