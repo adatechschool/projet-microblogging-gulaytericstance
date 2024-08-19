@@ -9,14 +9,12 @@ class Post extends Model
 {
     use HasFactory;
 
-        /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'user_id',
-        'title',
-        'content',
-    ];
+    // Spécifiez les attributs que vous pouvez remplir via l'assignation de masse
+    protected $fillable = ['title', 'content', 'user_id'];
+
+    // Définissez la relation avec le modèle User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

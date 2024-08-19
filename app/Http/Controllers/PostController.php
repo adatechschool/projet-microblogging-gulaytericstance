@@ -39,9 +39,8 @@ class PostController extends Controller
     //function pour lister
     public function index(): View
     {
-        $posts = Post::all(); // Récupère tous les posts
-       /*  die("salut"); */
-       return view('post.index', compact('posts'));
+           $posts = Post::with('user')->get();
+        return view('home', compact('posts'));
     }
 
     //function pour stocker la nouvelle donnée
