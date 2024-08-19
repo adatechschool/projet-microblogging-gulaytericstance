@@ -30,9 +30,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
-    Route::patch('/post/{post}', [PostController::class, 'update'])->name('post.update');
-    Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
+    Route::get('/post', [PostController::class, 'edit'])->name('post.edit');
+    Route::patch('/post', [PostController::class, 'update'])->name('post.update');
+    Route::delete('/post', [PostController::class, 'destroy'])->name('post.destroy');
 });
 
 Route::get('/index', [PostController::class, 'index'])->name('post.index');
