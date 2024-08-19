@@ -23,21 +23,21 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/post', [PostController::class, 'edit'])->name('post.edit');
-    Route::patch('/post', [PostController::class, 'update'])->name('post.update');
-    Route::delete('/post', [PostController::class, 'destroy'])->name('post.destroy');
-    return view('home');
+    Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+    Route::patch('/post/{post}', [PostController::class, 'update'])->name('post.update');
+    Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 });
 
 Route::get('/index', [PostController::class, 'index'])->name('post.index');
 /* Route::get('/index', [PostController::class, 'show'])->name('post.show'); */
-Route::middleware('auth')->group(function () {
-});
+/* Route::middleware('auth')->group(function () {
+}); */
 
 require __DIR__.'/auth.php';

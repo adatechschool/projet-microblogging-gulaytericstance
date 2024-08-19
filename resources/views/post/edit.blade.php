@@ -5,7 +5,6 @@
 </head>
 <body>
     <h1>Create a New Post</h1>
-
     @if ($errors->any())
         <div>
             <ul>
@@ -15,7 +14,6 @@
             </ul>
         </div>
     @endif
-
     <form action="{{ route('posts.store') }}" method="POST">
         @csrf
         <div>

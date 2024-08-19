@@ -15,7 +15,7 @@ class PostController extends Controller
     public function edit(Request $request, Post $post): View
     {
         return view('post.edit', [
-            'post' => $post,
+            'post' => $request->post(),
         ]);
     }
 //function de mise a jour
