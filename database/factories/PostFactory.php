@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Post;
 
-/**
+/* *
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
 class PostFactory extends Factory
@@ -19,8 +19,9 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'userId' => $this->faker->numberBetween(1, 10), // Assurez-vous d'avoir des utilisateurs avec ces IDs
-            'description' => $this->faker->paragraph(3),
+            'user_id' => $this->faker->numberBetween(1, 10), // Assurez-vous d'avoir des utilisateurs avec ces IDs
+            'title' => $this->faker->sentence(3),
+            'content' => $this->faker->paragraph(3),
         ];
     }
 }

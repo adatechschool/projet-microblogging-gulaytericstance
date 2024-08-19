@@ -37,21 +37,38 @@ class PostController extends Controller
     }
 
     //function pour lister
-    public function index()
+    public function index(): View
     {
+        $posts = Post::all(); // Récupère tous les posts
        /*  die("salut"); */
-        return Post::all();
+       return view('post.index', compact('posts'));
     }
 
     //function pour stocker la nouvelle donnée
-    public function store(Request $request)
-    {
-        return Post::create($request->all());
-    }
+    public function store(Request $request): RedirectResponse
+{
+    $validatedData = $request->validate([
+        'title' => 'required|max:255',
+        'content' => 'required',
+    ]);
+
+    Post::create($validatedData);
+
+    return Redirect::route('post.index')->with('status', 'post-created'); // Redirige vers la liste des posts après création
+}
 
     //function pour afficher une donnée spécifique
-    public function show(Post $post)
+    public function show($id)
     {
-        return $post;
+        $post = Post::findOrFail($id);
+
+        return view('post.show', compact('post'));
     }
+
+     // Affiche le formulaire de création
+     public function create(): View
+     {
+         return view('post.create'); // Assure-toi que cette vue existe
+     }
 }
+

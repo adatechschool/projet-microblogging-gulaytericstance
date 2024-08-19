@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<!-- resources/views/post/index.blade.php -->
+@extends('layouts.app')
+
+@section('content')
+    <h1>All Posts</h1>
+    @foreach ($posts as $post)
+        <div class="post">
+            <h2>{{ $post->title }}</h2>
+            <p>{{ $post->content }}</p>
+        </div>
+    @endforeach
+@endsection
