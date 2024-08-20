@@ -51,6 +51,7 @@ class PostController extends Controller
         'content' => 'required',
     ]);
 
+    $validatedData['user_id'] = auth()->id(); // Ajoute l'utilisateur connecté
     Post::create($validatedData);
 
     return Redirect::route('post.index')->with('status', 'post-created'); // Redirige vers la liste des posts après création
