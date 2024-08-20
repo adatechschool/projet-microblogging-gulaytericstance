@@ -21,6 +21,9 @@
                 <p>{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit">Create Post</button>
+      <button type="submit" class="bg-white text-black font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 md:focus:text-red-600">
+    Create Post
+</button>
+
     </form>
 @endsection
