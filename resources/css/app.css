@@ -1,11 +1,19 @@
 @tailwind base;
 @tailwind components;
-<<<<<<< HEAD
 @tailwind utilities;
-=======
-@tailwind utilities;
-<<<<<<< HEAD
->>>>>>> 5e00f9a (breeze)
-=======
->>>>>>> 13b0932 (modif1)
->>>>>>> a5c818d (modif1)
+
+/* Styles de base (clair) */
+body {
+   background-color: #ffffff;
+   /* Exemple de couleur de fond clair */
+   color: #000000;
+   /* Exemple de couleur de texte clair */
+}
+
+/* Styles pour le mode sombre */
+.dark body {
+   background-color: #000000;
+   /* Exemple de couleur de fond sombre */
+   color: #ffffff;
+   /* Exemple de couleur de texte sombre */
+}
