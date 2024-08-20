@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
         </h2>
-    </x-slot>
+    
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -11,43 +11,40 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
-                <div class="p-6 text-white dark:text-white">
+
+                <!-- Affichage de la biographie -->
+                <div class="p-6 text-white ">
                     <h3 class="text-lg font-medium">Your Biography</h3>
                     <p>{{ $user->biography }}</p>
                 </div>
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h3 class="text-lg font-medium">Your Information</h3>
-                    <ul>
-                        <li><strong>Name:</strong> {{ $user->name }}</li>
-                        <li><strong>Email:</strong> {{ $user->email }}</li>
-                        {{-- d'autres info?? --}}
-                    </ul>
+
+                <!-- Formulaire de mise à jour de la biographie -->
+                <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-md">
+                    <h3 class="block text-white dark:text-white">Edit Your Biography</h3>
+                    <form method="POST" action="{{ route('update.biography') }}">
+                        @csrf
+                        <div class="mt-4">
+                            
+                            <textarea id="biography" name="biography" rows="4" class="w-full mt-1 p-2 border border-gray-300 rounded-md dark:bg-gray-900 dark:border-gray-600 dark:text-gray-100">{{ old('biography', $user->biography) }}</textarea>
+                            @error('biography')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <button type="submit"
+    class="mt-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-md border border-blue-700 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+    Update Biography
+</button>
+
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    @if (session('status') === 'biography-updated')
+    <div class="p-4 mb-4 text-sm text-green-800 bg-green-100 rounded-lg dark:bg-green-900 dark:text-green-400" role="alert">
+        {{ __('Biography updated successfully!') }}
+    </div>
+@endif
+</x-slot>
 
-    {{-- resources/views/post/create.blade.php --}}
-
-@extends('layouts.app')
-
-@section('content')
-    <div class="bg-white text-black font-semibold py-2 px-4 rounded hover:bg-blue-600 place-content-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 md:focus:text-red-600 "><h1>Create your biography</h1>
-        
-        <form method="POST" action="{{ route('post.store') }}">
-        @csrf
-        <div>
-            <label for="title">Express yourself</label>
-            <input type="text" id="biography" name="biography" value="{{ old('biography') }}" required>
-            @error('biography')
-                <p>{{ $text }}</p>
-            @enderror
-        </div>
-        
-      <button type="submit" class="bg-white text-black font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 md:focus:text-red-600">
-    Create biography
-</button>
-
-    </form>
-@endsection
 </x-app-layout>

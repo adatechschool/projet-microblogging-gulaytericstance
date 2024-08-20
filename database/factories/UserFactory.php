@@ -22,6 +22,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => bcrypt('password'), // utiliser bcrypt pour générer un mot de passe hashé
+            'biography' => $this->faker->paragraph, // Génère une biographie factice
             'remember_token' => Str::random(10),
         ];
     }

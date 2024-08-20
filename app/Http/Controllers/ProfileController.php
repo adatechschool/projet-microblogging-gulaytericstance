@@ -12,10 +12,27 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function dashboard()
+public function dashboard()
 {
+    $user = Auth::user(); // Récupère l'utilisateur authentifié
+    return view('dashboard', compact('user')); // Passe l'utilisateur à la vue
+}
+
+
+   public function updateBiography(Request $request): RedirectResponse
+{
+    // Validation des données
+    $request->validate([
+        'biography' => 'required|string|max:1000', // Validation pour la biographie
+    ]);
+
+    // Récupération de l'utilisateur authentifié
     $user = Auth::user();
-    return view('dashboard', compact('user'));
+    $user->biography = $request->input('biography');
+    
+
+    // Redirection avec message de succès
+    return Redirect::route('dashboard')->with('status', 'biography-updated');
 }
     public function index()
     {

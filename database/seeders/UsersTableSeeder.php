@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
                 DB::table('users')->insert([
                     'name' => $faker->name,
                     'email' => $email,
+                    'biography' => $faker->paragraph, // Génère une biographie factice
                     'email_verified_at' => now(),
                     'password' => Hash::make('password'), // Utiliser Hash::make pour hasher le mot de passe
                     'remember_token' => Str::random(10),

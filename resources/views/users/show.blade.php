@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="bg-white p-6 border border-gray-200 rounded-2xl shadow-lg mb-8">
+            <p class="text-gray-600 mb-4"><strong>Profil de:</strong> 
             <h1 class="text-3xl font-bold text-gray-800 mb-6">{{ $user->name }}</h1>
             <p class="text-gray-600 mb-4"><strong>Email:</strong> 
                <a href="mailto:{{ $user->email }}"> {{ explode('@', $user->email)[0] }}@****
@@ -10,6 +12,10 @@
             </p>
 
             <p class="text-gray-600 mb-4"><strong>Joined:</strong> {{ $user->created_at->format('l, F j, Y') }}</p>
+        </div>
+        <div class="bg-white p-6 border border-gray-200 rounded-2xl shadow-lg mb-8">
+            <p class="text-gray-600 mb-4"><strong>Biography:</strong>
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">{{$user->biography}}</h1>
         </div>
 
         <div>
