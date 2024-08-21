@@ -9,20 +9,27 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-        public function test_user_is_not_registered($username): void
+        public function test_user_is_registered($username): void
         {
-            $user = User::where('name', $username)->first();
+            $user = User::where('name', $username)->get();
            
-            if (!$user) {
-                $this->fail("L'utilisateur $username n'est pas enregistré.");
+            if ($user) {
+                $this->assertDatabaseHas('users', [
+                    'name' => $username,
+                ]);;
             }
+
+            /*else {
+                $this -> fail ("L'utilisateur·ice $username n'est pas enregistré·e");
+            }
+                */
 
             
         }
     
-        public function test_users_are_not_registered(): void
+        public function test_users_are_registered(): void
         {
-            $this->test_user_is_not_registered('Enola Nolan'); 
+            $this->test_user_is_registered('Enola Nolan'); 
            
         }
 }
