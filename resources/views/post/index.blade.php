@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold text-white mb-8 text-center">All Posts</h1>
 
@@ -12,4 +11,5 @@
             </div>
         @endforeach
     </div>
-@endsection
+    @endsection
+</x-app-layout>
