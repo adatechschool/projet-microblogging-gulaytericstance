@@ -45,7 +45,12 @@
     text-align: center; /* Alignement du texte au centre */
     font-family: 'Verdana', sans-serif; /* Police de caractères */
 }
-
+.logo1 {
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+    
+}
 
         </style>
     </head>
@@ -70,7 +75,7 @@
 
             <div class="svg-container">
                 <div class="logo-wrapper"> <!-- Alignement en haut avec margin-top à 0 -->
-                    <div class="logo">
+                    <div class="logo1">
         <svg width="300px" height="300px"  viewBox="0 -54 1132 1132" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
         
             <path d="M567.946541 498.230212m-449.210729 0a449.210729 449.210729 0 1 0 898.421459 0 449.210729 449.210729 0 1 0-898.421459 0Z" fill="#4766AC" />
