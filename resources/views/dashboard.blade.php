@@ -15,13 +15,13 @@
 
                 <!-- Affichage de la biographie -->
                 <div class="p-6 text-white">
-                    <h3 class="text-lg font-medium">Your Biography</h3>
+                    <h3 class="text-lg font-medium text-gray-800 dark:text-white">Your Biography</h3>
                     <p>{{ $user->biography }}</p>
                 </div>
 
                 <!-- Formulaire de mise à jour de la biographie -->
                 <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-md">
-                    <h3 class="block text-white dark:text-white">Edit Your Biography</h3>
+                    <h3 class="block text-gray-800 dark:text-white">Edit Your Biography</h3>
                     <form method="POST" action="{{ route('update.biography') }}">
                         @csrf
                         <div class="mt-4">
@@ -45,3 +45,4 @@
         </div>
     @endif
 </x-app-layout>
+

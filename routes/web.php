@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::patch('/post/{id}', [PostController::class, 'update'])->name('post.update');
     Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
-    Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
+    // Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
 
     
     // Routes pour la gestion du profil utilisateur

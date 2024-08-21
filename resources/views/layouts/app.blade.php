@@ -18,10 +18,18 @@
     <div class="min-h-screen">
         @include('layouts.navigation')
 
+        <!-- Page Header -->
+        @if (isset($header))
+            <header class="bg-white dark:bg-gray-800 shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
+
         <!-- Page Content -->
-        <main class="py-10 sm:py-12">
-            <!-- Votre contenu ici -->
-            @yield('content')
+        <main>
+            {{ $slot }}
         </main>
     </div>
 
@@ -33,6 +41,6 @@
     </div>
 
     <!-- Scripts -->
-@vite('resources/js/app.js')
+    @vite('resources/js/app.js')
 </body>
 </html>
